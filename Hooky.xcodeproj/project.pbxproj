@@ -476,6 +476,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "NS_BLOCK_ASSERTIONS=1";
 				INFOPLIST_FILE = Hooky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
