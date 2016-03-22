@@ -9,8 +9,8 @@
 #ifndef EventDefinitions_h
 #define EventDefinitions_h
 
-#include <sys/types.h>
-#include "MacroTools.h"
+#import <sys/types.h>
+#import "MacroTools.h"
 
 typedef enum : int8_t {
     MouseButtonTypeNone,

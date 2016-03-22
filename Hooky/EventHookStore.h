@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "EventDefinitions.h"
+#import "EventDefinitions.h"
 
 typedef struct OverallHooksInfo {
     uint8_t maxClicks[EndOfMouseButtonType];
