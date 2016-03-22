@@ -38,7 +38,7 @@
     int lower = rand(), upper = rand();
     int value = randomInteger(lower, upper);
     if (upper < lower) {
-        SWAP(upper, lower, int);
+        SWAP(upper, lower);
     }
     XCTAssertGreaterThanOrEqual(value, lower);
     XCTAssertLessThan(value, upper);
@@ -48,7 +48,7 @@
     float lower = rand(), upper = rand();
     float value = randomFloat(lower, upper);
     if (upper < lower) {
-        SWAP(upper, lower, int);
+        SWAP(upper, lower);
     }
     XCTAssertGreaterThanOrEqual(value, lower);
     XCTAssertLessThan(value, upper);

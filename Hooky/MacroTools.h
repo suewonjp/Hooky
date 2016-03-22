@@ -62,7 +62,7 @@
 // Run Time Assert
 //
 #if defined(DEBUG)
-    #define RT_ASSERT(condition) NSAssert(condition, @"Assert Violation!!!")
+    #define RT_ASSERT(condition) { NSAssert(condition, @"Assert Violation!!!"); }
 #else
     #define RT_ASSERT(condition) {}
 #endif
@@ -75,17 +75,13 @@
 //
 // Type Check Assert For Objective C Objects
 //
-#if defined(DEBUG)
-    #define TYPE_ASSERT(type, instance) NSAssert([(instance) isKindOfClass:[type class]], @"Class Type Mismatch!!!")
-#else
-    #define TYPE_ASSERT(type, instance) {}
-#endif
+#define TYPE_ASSERT(type, instance) RT_ASSERT([(instance) isKindOfClass:[type class]])
 
 //
 // No Operation.
 // Useful as a breakpoint acceptable placeholder when you can't put a breakpoint on some edge spots in your code
 //
-#define NOOP RT_ASSERT(TRUE)
+#define NOOP RT_ASSERT(1)
 
 //
 // Return the number of members of a static array
@@ -95,18 +91,40 @@
 //
 // Swap variables
 //
-#define SWAP(A, B, VARIABLE_TYPE) { \
-        const VARIABLE_TYPE __swap__temp__ = A; \
-        A = B; \
-        B = __swap__temp__; \
+#define SWAP(a, b) { \
+        const typeof(a) __swap__temp__ = a; \
+        a = b; \
+        b = __swap__temp__; \
     }
 
+//
+// Return maximum value of the two
+//
+#define MAX2(a, b) \
+    ({ typeof(a) _a = (a); typeof(b) _b = (b); _a < _b ? _b : _a; })
 
-#define MAX2(A, B) ((A) < (B) ? (B) : (A))
-#define MAX3(A, B, C) ((A) < (B) ? (((B) < (C) ? (C) : (B))) : (((A) < (C) ? (C) : (A))))
+//
+// Return minimum value of the two
+//
+#define MIN2(a, b) \
+    ({ typeof(a) _a = (a); typeof(b) _b = (b); _a < _b ? _a : _b; })
 
-#define MIN2(A, B) ((A) < (B) ? (A) : (B))
-#define MIN3(A, B, C) ((A) < (B) ? (((A) < (C) ? (A) : (C))) : (((B) < (C) ? (B) : (C))))
+//
+// Return maximum value of the tree
+//
+#define MAX3(a, b, c) MAX2(MAX2(a, b), c)
+    //((a) < (b) ? (((b) < (c) ? (c) : (b))) : (((a) < (c) ? (c) : (a))))
+
+//
+// Return minimum value of the tree
+//
+#define MIN3(a, b, c) MIN2(MIN2(a, b), c)
+    //((a) < (b) ? (((a) < (c) ? (a) : (c))) : (((b) < (c) ? (b) : (c))))
+
+//
+// Clip a value between a range
+//
+#define CLIP(v, minv, maxv) MIN2(MAX2(minv, v), maxv)
 
 #if defined(__OBJC__)
 
