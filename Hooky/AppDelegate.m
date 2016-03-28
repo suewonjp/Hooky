@@ -42,7 +42,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSButton* button = self.statusItem.button;
     if (button) {
-        button.image = [NSImage imageNamed:@"NSActionTemplate"];
+        button.title = @"\u2693";
         button.action = @selector(togglePopover:);
     }
     
