@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "EventHookManager.h"
 #import "PersistenceManager.h"
+#import "Version.h"
 
 @interface AppDelegate ()
 
@@ -44,6 +45,7 @@
     if (button) {
         button.title = @"\u2693";
         button.action = @selector(togglePopover:);
+        button.toolTip = [NSString stringWithFormat:@"Hooky %d.%d.%d", HOOKY_VERSION_MAJOR, HOOKY_VERSION_MINOR, HOOKY_VERSION_PATCH];
     }
     
     MainViewController* viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];

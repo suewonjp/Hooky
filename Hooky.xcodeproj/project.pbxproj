@@ -64,6 +64,7 @@
 		1B4167C31C9AB14F0099D17C /* KeyCodeUtilsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyCodeUtilsTest.m; sourceTree = "<group>"; };
 		1B4167C51C9AB14F0099D17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B4167CB1C9AC2EF0099D17C /* PersistenceManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceManagerTest.m; sourceTree = "<group>"; };
+		1B69F6861CABCC5A009AFA38 /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		1BDC2CAC1C95057F00577541 /* TableRowContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableRowContent.h; sourceTree = "<group>"; };
 		1BDC2CAD1C95057F00577541 /* TableRowContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableRowContent.m; sourceTree = "<group>"; };
 		1BDC2CAF1C955F1E00577541 /* ViewPingPongAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPingPongAnimator.h; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		1B1EE2101C897A8400ECEF0A /* Hooky */ = {
 			isa = PBXGroup;
 			children = (
+				1B69F6861CABCC5A009AFA38 /* Version.h */,
 				1B1EE2111C897A8400ECEF0A /* AppDelegate.h */,
 				1B1EE2121C897A8400ECEF0A /* AppDelegate.m */,
 				1B1EE2191C897A8400ECEF0A /* MainMenu.xib */,
