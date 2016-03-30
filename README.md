@@ -24,6 +24,8 @@ Currently, Hooky offers two types of _Proxy Events_:
 
 And Hooky won't (more precisely, can't) modify any of target shortcuts. So users always have options of invoking the designated event by either of Hooky's proxy event or the original shortcut.
 
+_**PLEASE, REFER TO THIS [BLOG](http://suewonjp.github.io/civilizer/blog/2016/03/30/Hooky/) FOR MORE DETAILS.**_
+
 ### BENEFITS
 - Can assign complicated (so hard to press and hard to remember) shortcut keys to a simpler and easier type of events.
 - Each or all of proxy events easily can be turned off and revived later.
@@ -36,6 +38,8 @@ And Hooky won't (more precisely, can't) modify any of target shortcuts. So users
 - Hooky might not detect any of events being used by higher privileged applications (including apps permitted to use Accessibility API)
 - Hooky can't change the system or other application's behaviors associated with its proxy events. 
 - Hooky can't detect non-modifier key strokes.
+
+> Refer to this [blog](http://suewonjp.github.io/civilizer/blog/2016/03/30/Hooky/) for more details.
 
 ### SYSTEM REQUIREMENTS
 OS X 10.9+
