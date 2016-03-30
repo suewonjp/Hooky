@@ -13,6 +13,7 @@ Currently, Hooky offers two types of _Proxy Events_:
 - **Mouse Click Events**
   - Long press, Single/Double/Triple click for any of left, right, middle buttons
   - One or more of Modifier Keys (⌘⌥⇧⌃) may be involved.
+  - Note that long press needs you to release the mouse button to finally invoke the target shortcuts. (In other words, just holding down the button won't signal anything.)
 - **Multiple Keystrokes on Modifier Keys** (MKM events)
   - Only works for **SINGLE** Modifier Key (⌘ or ⌥ or ⇧ or ⌃)
   - Long press on the modifier keys won't count. You should **TAP** on them!
@@ -32,15 +33,9 @@ And Hooky won't (more precisely, can't) modify any of target shortcuts. So users
 - Hooky is tiny. its resource footprint is small.
 
 ### LIMITATIONS
-Let's say, one of your applications already has occupied a mouse middle click event to invoke one of its functionalities. Then, technically, Hooky won't have a chance to detect the mouse middle click event. In this case, mouse middle click can't be used as a proxy event for Hooky. 
-
-**Generally speaking, Hooky can't detect any of events being used by higher privileged applications** (including apps permitted to use Accessibility API)
-
-Also, for instance, when you assign a right click (or control left click) as a proxy event, you'll always see a context menu showing up (your designated target shortcut will be invoked too, though)
-
-**Note that Hooky will never change the system or other application's behaviors associated with its proxy events**. So right click triggers a context menu even though you've registered it as a proxy event for Hooky. In that sense, registering left or right mouse click events as Hooky's proxy events is not recommended because they are already bound to so many functions. Using mouse middle click, however, is recommended and relatively safe because the system doesn't preoccupy any of mouse middle click events according to Apple's documentation.
-
-**For MKM proxy events, you should not press any of regular keys while tapping the modifier keys.** Hooky can't detect regular key strokes (this limitation is imposed by Apple. Non-previliged applications can't detect global or other app's regular key press events). Let's say, while tapping on ⌘ modifier key twice, which has been assigned for zooming up screen (⌥⌘=) by you, if you press the 'H' key accidentally or intentionally, your front app will become hidden (⌘H does that by default as you know). And then your empty screen will be zoomed up. This kind of accident might happen because currently Hooky can't detect regular key press so it can't prevent them.
+- Hooky might not detect any of events being used by higher privileged applications (including apps permitted to use Accessibility API)
+- Hooky can't change the system or other application's behaviors associated with its proxy events. 
+- Hooky can't detect non-modifier key strokes.
 
 ### SYSTEM REQUIREMENTS
 OS X 10.9+
@@ -50,12 +45,11 @@ It has not been tested on 10.9 and 10.10.
 Currently, it is being developed and tested on OS X 10.11+ with Xcode 7.3+.
 
 ### HOW TO INSTALL AND RUN
-- Install
-  - Just copy the .app file into your _/Application_ directory.  
-- Run
-  - Double click the app file directly or open spotlight and type _Hooky_
-- Uninstall
-  - Trash the .app file
+1. Download the latest .dmg file from [here](https://github.com/suewonjp/Hooky/releases/latest).
+1. Double click the .dmg file and drag the .app file inside it into your _/Applications_ directory.
+1. Open _Spotlight_ and type _Hooky_.
+1. An icon that looks like a _hook_ will appear on the menu bar.
+1. Clicking on that icon will bring up the window where you can register your _"proxy event/target shortcut"_ pairs.
 
 ### DEVELOPMENT REQUIREMENTS
 - Xcode 7.2+
