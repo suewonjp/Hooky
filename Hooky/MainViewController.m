@@ -418,15 +418,20 @@
     
     NSString* text = [rowContent valueForKey:identifier];
     cellView.textField.stringValue = text;
+    cellView.textField.drawsBackground = YES;
+    NSArray* bgColors = [NSColor controlAlternatingRowBackgroundColors];
+    cellView.textField.backgroundColor = bgColors[row % 2];
+    BOOL active = [(TableRowContent*)self.tableRowContents[row] active] && [self.evtHkMgr active];
+    cellView.textField.textColor = active ? [NSColor textColor] : [NSColor tertiaryLabelColor];
     return cellView;
 }
 
 - (void)tableView:(NSTableView *)tableView
     didAddRowView:(NSTableRowView *)rowView
            forRow:(NSInteger)row {
-    BOOL active = [(TableRowContent*)self.tableRowContents[row] active] && [self.evtHkMgr active];
-    rowView.backgroundColor = active ?
-        [NSColor controlBackgroundColor] : [NSColor disabledControlTextColor];
+    NSArray* bgColors = [NSColor controlAlternatingRowBackgroundColors];
+    rowView.backgroundColor = bgColors[row % 2];
+    rowView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
 }
 
 #pragma mark Actions
