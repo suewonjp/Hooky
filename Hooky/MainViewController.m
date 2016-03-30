@@ -224,6 +224,7 @@
     else {
         // Initialize for a new hook
         [self resetMouseButtonMenu];
+        self->mkmMode = NO;
         [self resetPressTypeMenu];
         [self clearModifierCheckBoxes];
         self->targetShortcut.stringValue = nil;
